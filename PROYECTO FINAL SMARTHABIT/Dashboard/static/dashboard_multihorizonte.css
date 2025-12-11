@@ -1,0 +1,254 @@
+/* ======================================
+   🌙 DARK MODE + GOLD STYLE PREMIUM UI
+====================================== */
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #0f0f11;
+    margin: 0;
+    padding: 0;
+    color: #e6e6e6;
+}
+
+/* ================================
+   🔥 HEADER
+================================ */
+header {
+    background: linear-gradient(90deg, #111, #1a1a1c, #111);
+    color: #D4AF37;
+    padding: 25px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(212,175,55,0.35);
+    text-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
+
+/* ================================
+   CONTENEDOR
+================================ */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ================================
+   SELECTORES
+================================ */
+select, button {
+    padding: 12px;
+    margin: 5px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    font-size: 16px;
+    background: #1c1c1e;
+    color: #e6e6e6;
+}
+
+select:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
+
+/* ================================
+   KPIs PRINCIPALES
+================================ */
+.kpi-box {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.kpi {
+    background: rgba(255,255,255,0.04);
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    transition: 0.25s ease;
+}
+
+.kpi:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 16px rgba(212,175,55,0.45);
+}
+
+.kpi-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #D4AF37;
+}
+
+.kpi-value {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: #ffffff;
+}
+
+/* ================================
+   GRÁFICO PRINCIPAL
+================================ */
+#chart {
+    margin-top: 25px;
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.7);
+}
+
+/* ================================
+   TABLAS
+================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #151515;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(212,175,55,0.2);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background: #1c1c1e;
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+td {
+    color: #e6e6e6;
+}
+
+tr:hover {
+    background: rgba(212,175,55,0.1);
+}
+
+/* ============================
+   KPI AVANZADOS
+============================ */
+.kpi-advanced-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.kpi-advanced {
+    background: #151515;
+    border: 1px solid rgba(212,175,55,0.3);
+    padding: 18px;
+    border-radius: 10px;
+    flex: 1 1 30%;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(0,0,0,0.55);
+    transition: 0.25s ease;
+}
+
+.kpi-advanced:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(212,175,55,0.4);
+}
+
+.kpi-advanced-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #D4AF37;
+}
+
+.kpi-advanced-value {
+    margin-top: 6px;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* ============================
+   SECCIONES DE GRÁFICAS EXTENDIDAS
+============================ */
+.section-title {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #D4AF37;
+    text-shadow: 0 0 10px rgba(212,175,55,0.5);
+}
+
+.chart-container {
+    margin-top: 20px;
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: 0 0 14px rgba(0,0,0,0.65);
+}
+
+.chart-canvas {
+    width: 100%;
+    height: 350px;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 900px) {
+    .kpi-advanced {
+        flex: 1 1 100%;
+    }
+}
+
+/* =======================
+   ALERTAS INTELIGENTES
+======================= */
+.alertas-container {
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 1400px;
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+}
+
+.alerta-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border-left: 6px solid #D4AF37;
+}
+
+.alerta-item.severidad-leve {
+    border-left-color: #f4b400;
+}
+
+.alerta-item.severidad-moderada {
+    border-left-color: #ff7043;
+}
+
+.alerta-item.severidad-alta {
+    border-left-color: #d32f2f;
+}
+
+.alerta-titulo {
+    font-weight: bold;
+    font-size: 18px;
+    color: #D4AF37;
+}
+
+.alerta-detalle {
+    color: #cccccc;
+    margin-top: 5px;
+    font-size: 15px;
+}
