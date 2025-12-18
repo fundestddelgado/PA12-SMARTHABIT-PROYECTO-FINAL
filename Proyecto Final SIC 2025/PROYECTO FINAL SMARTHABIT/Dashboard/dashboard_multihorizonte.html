@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Smart Consumption Dashboard</title>
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="static/dashboard_multihorizonte.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO / TÍTULO -->
+        <div class="logo">
+            <span class="logo-main">Smart</span>
+            <span class="logo-sub">Consumption</span>
+            <span class="logo-desc">AI Dashboard</span>
+        </div>
+
+        <!-- NAVEGACIÓN -->
+        <nav class="sidebar-nav">
+            <button class="nav-item active" onclick="mostrarSeccion('predicciones', this)">
+                📊 <span>Predicciones</span>
+            </button>
+            <button class="nav-item" onclick="mostrarSeccion('ahorro', this)">
+                💰 <span>Ahorro</span>
+            </button>
+            <button class="nav-item" onclick="mostrarSeccion('analitica', this)">
+                📈 <span>Análisis</span>
+            </button>
+            <button class="nav-item" onclick="mostrarSeccion('alertas', this)">
+                🚨 <span>Alertas</span>
+            </button>
+            <button class="nav-item" onclick="mostrarSeccion('datos', this)">
+                📋 <span>Datos</span>
+            </button>
+        </nav>
+
+    </aside>
+
+    <!-- ================= CONTENIDO ================= -->
+    <main class="main">
+        <div class="view">
+
+            <!-- ================= PREDICCIONES ================= -->
+            <section id="predicciones" class="section active">
+
+                <!-- PANEL DE CONTROL -->
+                <div class="panel">
+                    <h2>Panel de Control</h2>
+
+                    <div class="controls">
+                        <div>
+                            <label>Horizonte</label>
+                            <select id="horizonSelect">
+                                <option value="1">1 hora</option>
+                                <option value="6">6 horas</option>
+                                <option value="12">12 horas</option>
+                                <option value="24">24 horas</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label>Variable</label>
+                            <select id="variableSelect">
+                                <option value="energia">Energía (kWh)</option>
+                                <option value="agua">Agua (Litros)</option>
+                                <option value="costo">Costo (USD)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="panel">
+                    <div class="kpi-box">
+                        <div class="kpi">
+                            <div class="kpi-title">MAE</div>
+                            <div class="kpi-value" id="kpi_mae">--</div>
+                        </div>
+
+                        <div class="kpi">
+                            <div class="kpi-title">MAPE</div>
+                            <div class="kpi-value" id="kpi_mape">-- %</div>
+                        </div>
+
+                        <div class="kpi">
+                            <div class="kpi-title">Datos</div>
+                            <div class="kpi-value" id="kpi_points">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICO -->
+                <div class="panel">
+                    <h2 class="section-title">Predicción vs Consumo Real</h2>
+                    <canvas id="chart"></canvas>
+                </div>
+
+            </section>
+
+            <!-- ================= AHORRO ================= -->
+            <section id="ahorro" class="section">
+                <h2 class="section-title">💰 Estimación de Ahorro</h2>
+                <div class="kpi-box" id="kpiAhorroBox"></div>
+            </section>
+
+            <!-- ================= ANALÍTICA ================= -->
+            <section id="analitica" class="section">
+                <h2 class="section-title">📊 Análisis Avanzado</h2>
+
+                <div class="kpi-advanced-box">
+                    <div class="kpi-advanced">
+                        <div class="kpi-advanced-title">Promedio Energía</div>
+                        <div class="kpi-advanced-value" id="kpi_avg_energy">--</div>
+                    </div>
+
+                    <div class="kpi-advanced">
+                        <div class="kpi-advanced-title">Consumo Máximo</div>
+                        <div class="kpi-advanced-value" id="kpi_peak_day">--</div>
+                    </div>
+
+                    <div class="kpi-advanced">
+                        <div class="kpi-advanced-title">Día Más Costoso</div>
+                        <div class="kpi-advanced-value" id="kpi_expensive_day">--</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chart_combo"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chart_top5"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chart_hourly"></canvas>
+                </div>
+            </section>
+
+            <!-- ================= ALERTAS ================= -->
+            <section id="alertas" class="section">
+                <h2 class="section-title">🚨 Alertas Inteligentes</h2>
+                <div class="alertas-container">
+                    <div id="alertasLista"></div>
+                </div>
+            </section>
+
+            <!-- ================= DATOS ================= -->
+            <section id="datos" class="section">
+                <h2 class="section-title">📋 Datos Reales vs Predicción</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Real</th>
+                            <th>Predicción</th>
+                            <th>Error</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaDatos"></tbody>
+                </table>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<script src="static/dashboard_multihorizonte.js"></script>
+
+<!-- ================= NAVEGACIÓN ================= -->
+<script>
+function mostrarSeccion(id, btn) {
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+    document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+    btn.classList.add("active");
+}
+</script>
+
+</body>
+</html>

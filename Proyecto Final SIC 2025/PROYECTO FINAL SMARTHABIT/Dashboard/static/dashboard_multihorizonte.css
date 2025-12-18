@@ -1,0 +1,290 @@
+/* ======================================
+   🌙 DARK MODE + GOLD PREMIUM DASHBOARD
+====================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    background: #0f0f11;
+    color: #e6e6e6;
+}
+
+/* ================================
+   LAYOUT PRINCIPAL
+================================ */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* ================================
+   SIDEBAR (PROTAGONISTA)
+================================ */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #0b0b0d, #121214);
+    border-right: 1px solid rgba(212,175,55,0.25);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset -12px 0 24px rgba(0,0,0,0.75);
+}
+
+/* LOGO */
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-main {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: #D4AF37;
+    text-shadow: 0 0 12px rgba(212,175,55,0.6);
+}
+
+.logo-sub {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    color: #D4AF37;
+}
+
+.logo-desc {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    opacity: 0.65;
+}
+
+/* NAV */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* BOTONES DEL SIDEBAR (CARDS) */
+.nav-item {
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.02)
+    );
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 16px;
+    color: #e6e6e6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.55);
+}
+
+.nav-item span {
+    flex: 1;
+}
+
+/* HOVER */
+.nav-item:hover {
+    transform: translateX(6px);
+    background: rgba(212,175,55,0.12);
+    color: #D4AF37;
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.7),
+        inset 4px 0 0 #D4AF37;
+}
+
+/* ACTIVO */
+.nav-item.active {
+    background: rgba(212,175,55,0.18);
+    color: #D4AF37;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.75),
+        inset 4px 0 0 #D4AF37;
+}
+
+/* ================================
+   CONTENIDO PRINCIPAL
+================================ */
+.main {
+    flex: 1;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* VISTA SCROLLEABLE */
+.view {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px 36px;
+}
+
+/* ================================
+   SECCIONES
+================================ */
+.section {
+    display: none;
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.section.active {
+    display: block;
+}
+
+/* ================================
+   PANEL
+================================ */
+.panel {
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.015)
+    );
+    border-radius: 16px;
+    padding: 26px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(212,175,55,0.2);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+    transition: 0.3s ease;
+}
+
+.panel:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.75),
+        0 0 24px rgba(212,175,55,0.15);
+}
+
+/* ================================
+   TITULOS
+================================ */
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #D4AF37;
+    margin-bottom: 18px;
+    text-shadow: 0 0 10px rgba(212,175,55,0.45);
+}
+
+/* ================================
+   CONTROLES
+================================ */
+.controls {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+label {
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+/* SELECT */
+select {
+    min-width: 180px;
+    margin-top: 6px;
+    padding: 12px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #1a1a1c, #141416);
+    border: 1px solid rgba(212,175,55,0.25);
+    color: #f1f1f1;
+}
+
+select:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 12px rgba(212,175,55,0.45);
+}
+
+/* ================================
+   KPI
+================================ */
+.kpi-box {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.kpi {
+    flex: 1;
+    min-width: 220px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    border: 1px solid rgba(212,175,55,0.25);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    transition: 0.25s;
+}
+
+.kpi:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(212,175,55,0.45);
+}
+
+.kpi-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #D4AF37;
+}
+
+.kpi-value {
+    margin-top: 8px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ================================
+   CANVAS
+================================ */
+canvas {
+    margin-top: 10px;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ================================
+   ANIMACIONES
+================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .view {
+        padding: 20px;
+    }
+
+    .kpi-box {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,11 @@
+Descripción:
+Incluye la versión extendida y mejorada del proyecto, desarrollada como entrega final del SIC 2025.
+En esta fase se profundiza en el modelo predictivo, el dashboard interactivo y la experiencia de usuario, incorporando análisis avanzados y visualización moderna.
+
+Tecnologías clave:
+
+Python
+JavaScript
+HTML / CSS
+Chart.js
+Análisis predictivo multihorizonte
