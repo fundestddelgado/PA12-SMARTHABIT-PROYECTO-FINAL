@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/Dashboard/dashboard_multihorizonte.html",
+      "permanent": false
+    }
+  ]
+}
