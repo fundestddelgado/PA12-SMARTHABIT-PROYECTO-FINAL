@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: smarthabit-dashboard
+    container_name: smarthabit-dashboard
+    ports:
+      - "80:80"
+    restart: unless-stopped
